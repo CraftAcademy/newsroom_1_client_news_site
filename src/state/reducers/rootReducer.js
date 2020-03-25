@@ -30,7 +30,13 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: undefined,
         showArticlesList: true,
         activeItem: action.payload.activeItem
-      };
+			};
+
+			case 'SET_CURRENT_SESSION':
+				return {
+					...state,
+					...action.payload
+				}
 
     default:
       return state;
