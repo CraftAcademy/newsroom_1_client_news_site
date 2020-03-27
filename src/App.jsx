@@ -10,28 +10,28 @@ import axios from 'axios'
 
 
 const App = props => {
-	const dispatch = useDispatch()
-	useEffect(() => {
-		navigator.geolocation.getCurrentPosition(async pos => {
-			const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
-			dispatch({type: 'SET_CURRENT_SESSION', payload: currentSession.data})
-			debugger
-		})
-	}, [])
-	return (
-		<>
-			<DisplayHeader />
-			<HeaderCategories />
-			<Switch>
-				<Route exact path="/" component={Display}></Route>
-				<Route
-					exact
-					path={props.categoryName}
-					component={Display}
-				></Route>
-			</Switch>
-		</>
-	);
+  const dispatch = useDispatch()
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(async pos => {
+      const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
+      dispatch({ type: 'SET_CURRENT_SESSION', payload: currentSession.data })
+      debugger
+    })
+  }, [])
+  return (
+    <>
+      <DisplayHeader />
+      <HeaderCategories />
+      <Switch>
+        <Route exact path="/" component={Display}></Route>
+        <Route
+          exact
+          path={props.categoryName}
+          component={Display}
+        ></Route>
+      </Switch>
+    </>
+  );
 };
 
 export default App
