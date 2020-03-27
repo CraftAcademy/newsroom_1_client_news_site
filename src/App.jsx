@@ -15,7 +15,6 @@ const App = props => {
     navigator.geolocation.getCurrentPosition(async pos => {
       const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
       dispatch({ type: 'SET_CURRENT_SESSION', payload: currentSession.data })
-      debugger
     })
   }, [])
   return (
