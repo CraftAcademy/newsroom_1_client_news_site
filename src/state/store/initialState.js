@@ -4,7 +4,8 @@ const initialState = {
   showArticlesList: true,
   categoryName: "",
   showArticlesByCategory: false,
-  activeItem: "all"
+  activeItem: "all",
+  session: { edition: undefined }
 };
 
 export default initialState;
