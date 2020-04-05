@@ -5,7 +5,8 @@
     "culture": "Kultur",
     "tech": "Tech",
     "food": "Mat",
-    "sports": "Sport"
+    "sports": "Sport",
+    "articlesbylocation": "Artiklar enligt plats"
   },
   "head": {
     "login": "Logga In",

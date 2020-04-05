@@ -15,14 +15,16 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: action.payload,
         showArticlesList: false,
         showSingleArticle: true,
-        flashMessage: undefined
+        flashMessage: undefined,
+        showMap: false
       };
 
     case actionTypes.BACK_TO_ARTICLE_LIST:
       return {
         ...state,
         showArticlesList: true,
-        singleArticle: undefined
+        singleArticle: undefined,
+        showMap: false
       };
 
     case actionTypes.CATEGORY_SELECTION:
@@ -32,7 +34,8 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: undefined,
         showArticlesList: true,
         activeItem: action.payload.activeItem,
-        flashMessage: undefined
+        flashMessage: undefined,
+        showMap: false
       };
 
     case actionTypes.LOGIN_USER:
@@ -40,7 +43,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         showLogin: true,
         showArticlesList: false,
-        singleArticle: undefined
+        singleArticle: undefined,
+        showMap: false
       };
 
     case actionTypes.CLOSE_LOGIN:
@@ -67,6 +71,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
+        showMap: false,
         showArticlesList: false,
         singleArticle: undefined
       };
@@ -90,6 +95,13 @@ const rootReducer = (state = initialState, action) => {
         ...action.payload
       };
 
+      case actionTypes.GOOGLE_MAP:
+      return {
+        ...state,
+        showMap: true,
+        showArticlesList: false,
+        singleArticle: undefined
+      };
     default:
       return state;
   }

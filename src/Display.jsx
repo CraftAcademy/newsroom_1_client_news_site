@@ -7,6 +7,7 @@ import DisplaySingleArticle from "./components/DisplaySingleArticle";
 import Login from "./components/UserLogin";
 import SubscriptionForm from "./components/SubscriptionForm";
 import { Elements } from "react-stripe-elements";
+import MapContainer from './components/GoogleMaps'
 
 const Display = props => {
   props.fetchArticles();
@@ -24,6 +25,7 @@ const Display = props => {
           <SubscriptionForm />
         </Elements>
       )}
+      {props.showMap && <MapContainer/>}
     </>
   );
 };
@@ -40,7 +42,8 @@ const mapStateToProps = state => {
     showArticlesByCategory: state.showArticlesByCategory,
     showLogin: state.showLogin,
     showSubscription: state.showSubscription,
-    flashMessage: state.flashMessage
+    flashMessage: state.flashMessage,
+    showMap: state.showMap
   };
 };
 

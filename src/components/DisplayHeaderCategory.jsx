@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { CATEGORY_SELECTION } from "../state/actions/actionTypes";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 
 const HeaderCategories = props => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const handleItemClick = event => {
     props.dispatch({
@@ -77,6 +79,15 @@ const HeaderCategories = props => {
         to={{ pathname: "/sports" }}
         onClick={handleItemClick}
         active={props.activeItem === "sports"}
+      />
+      <Menu.Item
+        name={t("nav.articlesbylocation")}
+        id="articlesbylocation"
+        color={"red"}
+        as={Link}
+        to={{ pathname: "/articlesbylocation" }}
+        onClick={() => dispatch({ type: "GOOGLE_MAP" })}
+        active={props.activeItem === "articlesbylocation"}
       />
     </Menu>
   );

@@ -5,7 +5,8 @@
     "culture": "Culture",
     "tech": "Tech",
     "food": "Food",
-    "sports": "Sports"
+    "sports": "Sports",
+    "articlesbylocation": "Articles by location"
   },
   "head": {
     "login": "Login",
